@@ -1,13 +1,16 @@
-package oopsday4.inheritance;
+package oopsday4.composition;
 
 import java.util.Objects;
 
-public class Employee extends Person {
+
+
+public class Employee extends Person {// is-a
 	
 	private long empId;
 	private String deptno;
 	
-	
+	private Address residenceAddress;//has-a
+	private Address correspondenceAddress;// has-a
 	public long getEmpId() {
 		return empId;
 	}
@@ -38,11 +41,31 @@ public class Employee extends Person {
 		
 	}
 
-	public Employee(String name, String gender, int age,long empId,String deptno,double salary) {
+	
+
+	public Address getResidenceAddress() {
+		return residenceAddress;
+	}
+
+	public void setResidenceAddress(Address residenceAddress) {
+		this.residenceAddress = residenceAddress;
+	}
+
+	public Address getCorrespondenceAddress() {
+		return correspondenceAddress;
+	}
+
+	public void setCorrespondenceAddress(Address correspondenceAddress) {
+		this.correspondenceAddress = correspondenceAddress;
+	}
+
+	public Employee(String name, String gender, int age,long empId, String deptno, double salary, Address residenceAddress, Address correspondenceAddress) {
 		super(name, gender, age);
-		this.empId=empId;
-		this.deptno=deptno;
-		this.salary=salary;
+		this.empId = empId;
+		this.deptno = deptno;
+		this.salary = salary;
+		this.residenceAddress = residenceAddress;
+		this.correspondenceAddress = correspondenceAddress;
 		
 	}
 
